@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ToDoEpam.ApplicationServices.API.Domain.Models;
 
 namespace ToDoEpam.ApplicationServices.API.Domain.Responses
 {
-        internal class GetToDoListsResponse : ResponseBase<List<ToDoList>>
+        internal class ResponseBase<T>
         {
+                public T ResponseData { get; set; }
         }
 }
