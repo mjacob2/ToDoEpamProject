@@ -18,8 +18,4 @@
     <Folder Include="Controllers\" />
   </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\ToDoEpam.DataAccess\ToDoEpam.DataAccess.csproj" />
-  </ItemGroup>
-
 </Project>

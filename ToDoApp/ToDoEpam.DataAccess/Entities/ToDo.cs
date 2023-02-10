@@ -26,7 +26,7 @@ namespace ToDoEpam.DataAccess.Entities
                 [Required]
                 public bool IsCompleted { get; set; } = false;
 
-                public List<Attachment> Attachments { get; set; } = new List<Attachment>();
+                //public List<Attachment> Attachments { get; set; } = new List<Attachment>();
 
                 [Required]
                 public int ToDoListId { get; set; }

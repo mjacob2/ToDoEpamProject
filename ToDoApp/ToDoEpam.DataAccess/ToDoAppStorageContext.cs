@@ -9,11 +9,11 @@ namespace ToDoEpam.DataAccess
 {
         internal class ToDoAppStorageContext : DbContext
         {
-                public DbSet<ToDo>? ToDos { get; set; }
+                public DbSet<ToDo> ToDos { get; set; }
 
-                public DbSet<ToDoList>? ToDoLists { get; set; } 
+                public DbSet<ToDoList> ToDoLists { get; set; } 
 
-                public DbSet<Attachment>? ToDoAttachments { get; set; }
+                public DbSet<Attachment> Attachments { get; set; }
 
                 public ToDoAppStorageContext(DbContextOptions<ToDoAppStorageContext> options) : base(options) { }
 
