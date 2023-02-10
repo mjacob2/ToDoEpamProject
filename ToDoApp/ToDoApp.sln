@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33213.308
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDoApp", "ToDoApp\ToDoApp.csproj", "{A27B677D-92F0-424F-ADD3-61A908F79AB5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ToDoApp", "ToDoApp\ToDoApp.csproj", "{A27B677D-92F0-424F-ADD3-61A908F79AB5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDoEpam.DataAccess", "ToDoEpam.DataAccess\ToDoEpam.DataAccess.csproj", "{4D5B81D9-E726-474B-942B-B371BB1CF08D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ToDoEpam.DataAccess", "ToDoEpam.DataAccess\ToDoEpam.DataAccess.csproj", "{4D5B81D9-E726-474B-942B-B371BB1CF08D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDoEpam.ApplicationServices", "ToDoEpam.ApplicationServices\ToDoEpam.ApplicationServices.csproj", "{0C9AD4AC-F857-40A5-84B1-37259B58EE8C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{4D5B81D9-E726-474B-942B-B371BB1CF08D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4D5B81D9-E726-474B-942B-B371BB1CF08D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4D5B81D9-E726-474B-942B-B371BB1CF08D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0C9AD4AC-F857-40A5-84B1-37259B58EE8C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0C9AD4AC-F857-40A5-84B1-37259B58EE8C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0C9AD4AC-F857-40A5-84B1-37259B58EE8C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0C9AD4AC-F857-40A5-84B1-37259B58EE8C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
