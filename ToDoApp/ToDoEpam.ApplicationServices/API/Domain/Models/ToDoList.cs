@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ToDoEpam.ApplicationServices.API.Domain.Models
 {
-        internal class ToDoList
+        public class ToDoList
         {
                 public int Id { get; set; }
                 public string Name { get; set; }

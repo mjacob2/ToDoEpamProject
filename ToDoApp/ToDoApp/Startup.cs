@@ -1,3 +1,4 @@
+using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -6,6 +7,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using ToDoEpam.DataAccess;
+using ToDoEpam.ApplicationServices.API.Domain.Responses;
 
 namespace ToDoApp
 {
@@ -20,6 +22,7 @@ namespace ToDoApp
 
                 public void ConfigureServices(IServiceCollection services)
                 {
+                        services.AddMediatR(typeof(ResponseBase<>));
                         services.AddDbContext<ToDoAppStorageContext>(
                 opt => opt.UseSqlServer(this.Configuration.GetConnectionString("ToDoAppEpamConnection")));
                         services.AddControllers();
