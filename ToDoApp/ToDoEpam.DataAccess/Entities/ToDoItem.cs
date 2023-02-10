@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ToDoEpam.DataAccess.Entities
 {
-        public class ToDo : EntityBase
+        public class ToDoItem : EntityBase
         {
                 [Required]
                 [MaxLength(50)]

@@ -9,7 +9,7 @@ namespace ToDoEpam.DataAccess
 {
         public class ToDoAppStorageContext : DbContext
         {
-                public DbSet<ToDo> ToDos { get; set; }
+                public DbSet<ToDoItem> ToDoItems { get; set; }
 
                 public DbSet<ToDoList> ToDoLists { get; set; } 
 

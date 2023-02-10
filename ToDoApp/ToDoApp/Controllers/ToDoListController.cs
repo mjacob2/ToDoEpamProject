@@ -1,4 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using MediatR;
+using Microsoft.AspNetCore.Mvc;
+using System.Threading.Tasks;
+using ToDoEpam.ApplicationServices.API.Domain.Requests;
 
 namespace ToDoApp.Controllers
 {
@@ -6,11 +9,21 @@ namespace ToDoApp.Controllers
         [Route("[controller]")]
         public class ToDoListController : ControllerBase
         {
+                private readonly IMediator mediator;
 
-                public ToDoListController()
+                public ToDoListController(IMediator mediator)
                 {
-
+                        this.mediator = mediator;
                 }
+
+                [HttpGet]
+                [Route("")]
+                public async Task<IActionResult> GetAllToDoLists([FromQuery] GetToDoListsRequest request)
+                {
+                        var response = await this.mediator.Send(request);
+                        return this.Ok(response);
+                }
+
 
         }
 }

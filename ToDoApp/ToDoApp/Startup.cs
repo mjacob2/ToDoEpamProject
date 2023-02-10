@@ -8,6 +8,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using ToDoEpam.DataAccess;
 using ToDoEpam.ApplicationServices.API.Domain.Responses;
+using ToDoEpam.DataAccess.CQRS;
 
 namespace ToDoApp
 {
@@ -22,10 +23,15 @@ namespace ToDoApp
 
                 public void ConfigureServices(IServiceCollection services)
                 {
+                        services.AddTransient<IQueryExecutor, QueryExecutor>();
+
                         services.AddMediatR(typeof(ResponseBase<>));
+
                         services.AddDbContext<ToDoAppStorageContext>(
                 opt => opt.UseSqlServer(this.Configuration.GetConnectionString("ToDoAppEpamConnection")));
+
                         services.AddControllers();
+
                         services.AddSwaggerGen(c =>
                         {
                                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "ToDoApp", Version = "v1" });

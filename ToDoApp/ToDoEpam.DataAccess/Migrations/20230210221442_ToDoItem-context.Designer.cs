@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ToDoEpam.DataAccess;
 
 namespace ToDoEpam.DataAccess.Migrations
 {
     [DbContext(typeof(ToDoAppStorageContext))]
-    partial class ToDoAppStorageContextModelSnapshot : ModelSnapshot
+    [Migration("20230210221442_ToDoItem-context")]
+    partial class ToDoItemcontext
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
