@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ToDoEpam.DataAccess.Entities
 {
-        internal class Attachment : EntityBase
+        public class Attachment : EntityBase
         {
                 public byte[]? File { get; set; }
 

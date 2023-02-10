@@ -7,7 +7,7 @@ using ToDoEpam.DataAccess.Entities;
 
 namespace ToDoEpam.DataAccess
 {
-        internal class ToDoAppStorageContext : DbContext
+        public class ToDoAppStorageContext : DbContext
         {
                 public DbSet<ToDo> ToDos { get; set; }
 

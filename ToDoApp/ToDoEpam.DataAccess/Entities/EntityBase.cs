@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace ToDoEpam.DataAccess.Entities
 {
-        internal class EntityBase
+        public class EntityBase
         {
                 [Key]
                 public int Id {get; set;}

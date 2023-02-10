@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace ToDoEpam.DataAccess
 {
-        internal class ToDoAppStorageContextFactory : IDesignTimeDbContextFactory<ToDoAppStorageContext>
+        public class ToDoAppStorageContextFactory : IDesignTimeDbContextFactory<ToDoAppStorageContext>
         {
                 public ToDoAppStorageContext CreateDbContext(string[] args)
                 {
