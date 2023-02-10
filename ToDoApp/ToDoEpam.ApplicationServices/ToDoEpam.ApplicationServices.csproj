@@ -5,8 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="API\Domain\Responses\" />
-    <Folder Include="API\Domain\Requests\" />
     <Folder Include="API\Handlers\" />
   </ItemGroup>
 
