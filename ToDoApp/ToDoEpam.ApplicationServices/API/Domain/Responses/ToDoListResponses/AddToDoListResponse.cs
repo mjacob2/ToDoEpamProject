@@ -5,9 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using ToDoEpam.ApplicationServices.API.Domain.Models;
 
-namespace ToDoEpam.ApplicationServices.API.Domain.Responses
+namespace ToDoEpam.ApplicationServices.API.Domain.Responses.ToDoListResponses
 {
-        public class GetAllToDoListsResponse : ResponseBase<List<ToDoList>>
+        public class AddToDoListResponse : ResponseBase<ToDoList>
         {
         }
 }

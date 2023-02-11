@@ -13,6 +13,6 @@ namespace ToDoEpam.DataAccess.Entities
                 [MaxLength(50)]
                 public string Name { get; set; } = string.Empty;
 
-                public virtual List<ToDoItem> Tasks { get; set; } = new List<ToDoItem>();
+                public virtual List<ToDoItem> ToDoItems { get; set; } = new List<ToDoItem>();
         }
 }

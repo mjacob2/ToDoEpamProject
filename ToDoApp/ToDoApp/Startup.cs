@@ -25,6 +25,8 @@ namespace ToDoApp
                 {
                         services.AddTransient<IQueryExecutor, QueryExecutor>();
 
+                        services.AddTransient<ICommandExecutor, CommandExecutor>();
+
                         services.AddMediatR(typeof(ResponseBase<>));
 
                         services.AddDbContext<ToDoAppStorageContext>(
