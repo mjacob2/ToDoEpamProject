@@ -8,7 +8,7 @@ using ToDoEpam.DataAccess.Entities;
 
 namespace ToDoEpam.DataAccess.CQRS.Queries
 {
-        public class GetToDoListsQuery : QueryBase<List<ToDoList>>
+        public class GetAllToDoListsQuery : QueryBase<List<ToDoList>>
         {
                 public override Task<List<ToDoList>> Execute(ToDoAppStorageContext context)
                 {

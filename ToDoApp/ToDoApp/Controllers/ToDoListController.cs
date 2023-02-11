@@ -18,7 +18,7 @@ namespace ToDoApp.Controllers
 
                 [HttpGet]
                 [Route("")]
-                public async Task<IActionResult> GetAllToDoLists([FromQuery] GetToDoListsRequest request)
+                public async Task<IActionResult> GetAllToDoLists([FromQuery] GetAllToDoListsRequest request)
                 {
                         var response = await this.mediator.Send(request);
                         return this.Ok(response);
