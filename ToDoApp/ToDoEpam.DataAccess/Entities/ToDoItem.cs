@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace ToDoEpam.DataAccess.Entities
@@ -16,7 +18,7 @@ namespace ToDoEpam.DataAccess.Entities
                 [MaxLength(350)]
                 public string Description { get; set; } = string.Empty;
 
-                public DateTime Deadline { get; set; }
+                public DateTime? Deadline { get; set; }
 
                 public DateTime ReminderDate { get; set; }
 
@@ -28,12 +30,9 @@ namespace ToDoEpam.DataAccess.Entities
 
                 //public List<Attachment> Attachments { get; set; } = new List<Attachment>();
 
-                [Required]
                 public int ToDoListId { get; set; }
 
-                public ToDoList? ToDoList { get; set; }
-
-                
-
+                [JsonIgnore]
+                public virtual ToDoList ToDoList { get; set; }
         }
 }

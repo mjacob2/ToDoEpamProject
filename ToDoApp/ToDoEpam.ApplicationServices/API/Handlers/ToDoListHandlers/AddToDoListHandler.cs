@@ -32,7 +32,7 @@ namespace ToDoEpam.ApplicationServices.API.Handlers.ToDoListHandlers
                         var toDoListFromDb = await this.commandExecutor.Execute(command);
                         return new AddToDoListResponse()
                         {
-                                ResponseData = new Domain.Models.ToDoList()
+                                ResponseData = new Domain.Models.ToDoListsModel()
                                 {
                                         Id = toDoListFromDb.Id,
                                         Name = toDoListFromDb.Name,

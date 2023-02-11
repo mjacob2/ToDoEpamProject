@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ToDoApp", "ToDoApp\ToDoApp.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ToDoEpam.DataAccess", "ToDoEpam.DataAccess\ToDoEpam.DataAccess.csproj", "{4D5B81D9-E726-474B-942B-B371BB1CF08D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDoEpam.ApplicationServices", "ToDoEpam.ApplicationServices\ToDoEpam.ApplicationServices.csproj", "{0C9AD4AC-F857-40A5-84B1-37259B58EE8C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ToDoEpam.ApplicationServices", "ToDoEpam.ApplicationServices\ToDoEpam.ApplicationServices.csproj", "{0C9AD4AC-F857-40A5-84B1-37259B58EE8C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

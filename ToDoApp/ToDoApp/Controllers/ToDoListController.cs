@@ -2,34 +2,41 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 using ToDoEpam.ApplicationServices.API.Domain.Requests.ToDoListRequests;
+using ToDoEpam.ApplicationServices.API.Domain.Responses.ToDoListResponses;
 
 namespace ToDoApp.Controllers
 {
     [ApiController]
         [Route("[controller]")]
-        public class ToDoListController : ControllerBase
+        public class ToDoListController : ApiControllerBase
         {
-                private readonly IMediator mediator;
-
-                public ToDoListController(IMediator mediator)
+                public ToDoListController(IMediator mediator) : base(mediator)
                 {
-                        this.mediator = mediator;
                 }
 
                 [HttpGet]
                 [Route("")]
-                public async Task<IActionResult> GetAllToDoLists([FromQuery] GetAllToDoListsRequest request)
+                public Task<IActionResult> GetAllToDoLists([FromQuery] GetAllToDoListsRequest request)
                 {
-                        var response = await this.mediator.Send(request);
-                        return this.Ok(response);
+                        return this.HandleRequest<GetAllToDoListsRequest, GetAllToDoListsResponse>(request);
                 }
 
                 [HttpPost]
                 [Route("")]
-                public async Task<IActionResult> AddToDoList([FromBody] AddToDoListRequest request)
+                public Task<IActionResult> AddToDoList([FromBody] AddToDoListRequest request)
                 {
-                        var response = await this.mediator.Send(request);
-                        return this.Ok(response);
+                        return this.HandleRequest<AddToDoListRequest, AddToDoListResponse>(request);
+                }
+
+                [HttpGet]
+                [Route("{toDoListId}")]
+                public Task<IActionResult> GetToDoListById([FromRoute] int toDoListId)
+                {
+                        var request = new GetToDoListByIdRequest()
+                        {
+                                ToDoListId = toDoListId,
+                        };
+                        return this.HandleRequest<GetToDoListByIdRequest, GetToDoListByIdResponse>(request);
                 }
 
 

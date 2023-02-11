@@ -10,8 +10,8 @@ using ToDoEpam.DataAccess;
 namespace ToDoEpam.DataAccess.Migrations
 {
     [DbContext(typeof(ToDoAppStorageContext))]
-    [Migration("20230210221332_ToDoItem")]
-    partial class ToDoItem
+    [Migration("20230211205249_initial")]
+    partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -83,7 +83,7 @@ namespace ToDoEpam.DataAccess.Migrations
 
                     b.HasIndex("ToDoListId");
 
-                    b.ToTable("ToDos");
+                    b.ToTable("ToDoItems");
                 });
 
             modelBuilder.Entity("ToDoEpam.DataAccess.Entities.ToDoList", b =>
@@ -120,7 +120,7 @@ namespace ToDoEpam.DataAccess.Migrations
             modelBuilder.Entity("ToDoEpam.DataAccess.Entities.ToDoItem", b =>
                 {
                     b.HasOne("ToDoEpam.DataAccess.Entities.ToDoList", "ToDoList")
-                        .WithMany("Tasks")
+                        .WithMany("ToDoItems")
                         .HasForeignKey("ToDoListId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -130,7 +130,7 @@ namespace ToDoEpam.DataAccess.Migrations
 
             modelBuilder.Entity("ToDoEpam.DataAccess.Entities.ToDoList", b =>
                 {
-                    b.Navigation("Tasks");
+                    b.Navigation("ToDoItems");
                 });
 #pragma warning restore 612, 618
         }

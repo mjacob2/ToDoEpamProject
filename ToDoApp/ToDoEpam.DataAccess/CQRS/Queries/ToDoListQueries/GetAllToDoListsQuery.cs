@@ -10,7 +10,7 @@ namespace ToDoEpam.DataAccess.CQRS.Queries.ToDoListQueries
         {
                 public string? Name { get; set; }
 
-        public override Task<List<ToDoList>> Execute(ToDoAppStorageContext context)
+                public override Task<List<ToDoList>> Execute(ToDoAppStorageContext context)
                 {
                         if (this.Name != null)
                         {

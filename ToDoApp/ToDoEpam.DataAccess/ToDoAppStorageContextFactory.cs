@@ -13,7 +13,7 @@ namespace ToDoEpam.DataAccess
                 public ToDoAppStorageContext CreateDbContext(string[] args)
                 {
                         var optionsBuilder = new DbContextOptionsBuilder<ToDoAppStorageContext>();
-                        optionsBuilder.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=ToDoAppEpam;Trusted_Connection=True;");
+                        optionsBuilder.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=ToDoAppEpam2;Trusted_Connection=True;");
                         return new ToDoAppStorageContext(optionsBuilder.Options);
                 }
         }

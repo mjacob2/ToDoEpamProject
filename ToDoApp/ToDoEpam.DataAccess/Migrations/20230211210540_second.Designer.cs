@@ -10,8 +10,8 @@ using ToDoEpam.DataAccess;
 namespace ToDoEpam.DataAccess.Migrations
 {
     [DbContext(typeof(ToDoAppStorageContext))]
-    [Migration("20230210201121_Initial")]
-    partial class Initial
+    [Migration("20230211210540_second")]
+    partial class second
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -28,6 +28,9 @@ namespace ToDoEpam.DataAccess.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<DateTime>("CreationDate")
+                        .HasColumnType("datetime2");
+
                     b.Property<byte[]>("File")
                         .HasColumnType("varbinary(max)");
 
@@ -41,12 +44,15 @@ namespace ToDoEpam.DataAccess.Migrations
                     b.ToTable("Attachments");
                 });
 
-            modelBuilder.Entity("ToDoEpam.DataAccess.Entities.ToDo", b =>
+            modelBuilder.Entity("ToDoEpam.DataAccess.Entities.ToDoItem", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("CreationDate")
+                        .HasColumnType("datetime2");
 
                     b.Property<DateTime>("Deadline")
                         .HasColumnType("datetime2");
@@ -77,12 +83,12 @@ namespace ToDoEpam.DataAccess.Migrations
 
                     b.HasIndex("ToDoListId");
 
-                    b.ToTable("ToDos");
+                    b.ToTable("ToDoItems");
                 });
 
             modelBuilder.Entity("ToDoEpam.DataAccess.Entities.ToDoList", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("ToDoListId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
@@ -92,14 +98,14 @@ namespace ToDoEpam.DataAccess.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
-                    b.HasKey("Id");
+                    b.HasKey("ToDoListId");
 
                     b.ToTable("ToDoLists");
                 });
 
             modelBuilder.Entity("ToDoEpam.DataAccess.Entities.Attachment", b =>
                 {
-                    b.HasOne("ToDoEpam.DataAccess.Entities.ToDo", "ToDo")
+                    b.HasOne("ToDoEpam.DataAccess.Entities.ToDoItem", "ToDo")
                         .WithMany()
                         .HasForeignKey("ToDoId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -108,10 +114,10 @@ namespace ToDoEpam.DataAccess.Migrations
                     b.Navigation("ToDo");
                 });
 
-            modelBuilder.Entity("ToDoEpam.DataAccess.Entities.ToDo", b =>
+            modelBuilder.Entity("ToDoEpam.DataAccess.Entities.ToDoItem", b =>
                 {
                     b.HasOne("ToDoEpam.DataAccess.Entities.ToDoList", "ToDoList")
-                        .WithMany("Tasks")
+                        .WithMany("ToDoItems")
                         .HasForeignKey("ToDoListId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -121,7 +127,7 @@ namespace ToDoEpam.DataAccess.Migrations
 
             modelBuilder.Entity("ToDoEpam.DataAccess.Entities.ToDoList", b =>
                 {
-                    b.Navigation("Tasks");
+                    b.Navigation("ToDoItems");
                 });
 #pragma warning restore 612, 618
         }

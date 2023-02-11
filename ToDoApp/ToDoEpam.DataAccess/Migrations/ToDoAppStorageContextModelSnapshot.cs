@@ -52,7 +52,7 @@ namespace ToDoEpam.DataAccess.Migrations
                     b.Property<DateTime>("CreationDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime>("Deadline")
+                    b.Property<DateTime?>("Deadline")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Description")
@@ -66,7 +66,7 @@ namespace ToDoEpam.DataAccess.Migrations
                     b.Property<bool>("IsFavorite")
                         .HasColumnType("bit");
 
-                    b.Property<DateTime>("ReminderDate")
+                    b.Property<DateTime?>("ReminderDate")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Title")
