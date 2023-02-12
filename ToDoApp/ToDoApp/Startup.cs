@@ -9,6 +9,10 @@ using Microsoft.OpenApi.Models;
 using ToDoEpam.DataAccess;
 using ToDoEpam.ApplicationServices.API.Domain.Responses;
 using ToDoEpam.DataAccess.CQRS;
+using FluentValidation.AspNetCore;
+using ToDoEpam.ApplicationServices.API.Validators;
+using FluentValidation;
+using Microsoft.AspNetCore.Mvc;
 
 namespace ToDoApp
 {
@@ -22,9 +26,19 @@ namespace ToDoApp
 
 
                 public IConfiguration Configuration { get; }
-
+                
                 public void ConfigureServices(IServiceCollection services)
                 {
+                        services.AddFluentValidationAutoValidation();
+                        services.AddFluentValidationClientsideAdapters();
+                        services.AddValidatorsFromAssemblyContaining<AddToDoListRequestValidator>();
+
+                        // Lests enter the controller on request validation
+                        services.Configure<ApiBehaviorOptions>(options =>
+                        {
+                                options.SuppressModelStateInvalidFilter = true;
+                        });
+
                         services.AddTransient<IQueryExecutor, QueryExecutor>();
 
                         services.AddTransient<ICommandExecutor, CommandExecutor>();
