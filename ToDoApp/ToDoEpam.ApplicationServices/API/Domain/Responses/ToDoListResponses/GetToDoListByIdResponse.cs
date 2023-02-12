@@ -7,7 +7,7 @@ using ToDoEpam.ApplicationServices.API.Domain.Models;
 
 namespace ToDoEpam.ApplicationServices.API.Domain.Responses.ToDoListResponses
 {
-        public class GetToDoListByIdResponse : ResponseBase<ToDoListByIdModel>
+        public class GetToDoListByIdResponse : ResponseBase<ToDoListDetailedModel>
         {
         }
 }

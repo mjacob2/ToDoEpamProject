@@ -28,7 +28,7 @@ namespace ToDoEpam.ApplicationServices.API.Handlers.ToDoListHandlers
                                 ToDoListId = request.ToDoListId,
                         };
                         var toDoListFromDb = await this.queryExecutor.Execute(query);
-                        var toDoListMappedToModel = new Domain.Models.ToDoListByIdModel()
+                        var toDoListMappedToModel = new Domain.Models.ToDoListDetailedModel()
                         {
                                 Id = toDoListFromDb.Id,
                                 Name = toDoListFromDb.Name,

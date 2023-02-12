@@ -13,20 +13,20 @@ namespace ToDoEpam.DataAccess.Entities
         {
                 [Required]
                 [MaxLength(50)]
-                public string Title { get; set; } = string.Empty;
+                public string Title { get; set; }
 
                 [MaxLength(350)]
-                public string Description { get; set; } = string.Empty;
+                public string Description { get; set; }
 
                 public DateTime? Deadline { get; set; }
 
-                public DateTime ReminderDate { get; set; }
+                public DateTime? ReminderDate { get; set; }
 
                 [Required]
-                public bool IsFavorite { get; set; } = false;
+                public bool IsFavorite { get; set; }
 
                 [Required]
-                public bool IsCompleted { get; set; } = false;
+                public bool IsCompleted { get; set; }
 
                 //public List<Attachment> Attachments { get; set; } = new List<Attachment>();
 

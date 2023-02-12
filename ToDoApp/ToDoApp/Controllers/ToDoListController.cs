@@ -6,7 +6,7 @@ using ToDoEpam.ApplicationServices.API.Domain.Responses.ToDoListResponses;
 
 namespace ToDoApp.Controllers
 {
-    [ApiController]
+        [ApiController]
         [Route("[controller]")]
         public class ToDoListController : ApiControllerBase
         {
@@ -37,6 +37,28 @@ namespace ToDoApp.Controllers
                                 ToDoListId = toDoListId,
                         };
                         return this.HandleRequest<GetToDoListByIdRequest, GetToDoListByIdResponse>(request);
+                }
+
+                [HttpDelete]
+                [Route("{toDoListId}")]
+                public Task<IActionResult> DeleteToDoListById([FromRoute] int toDoListId)
+                {
+                        var request = new DeleteToDoListByIdRequest()
+                        {
+                                ToDoListId = toDoListId
+                        };
+
+                        return this.HandleRequest<DeleteToDoListByIdRequest, DeleteToDoListByIdResponse>(request);
+                }
+
+
+                [HttpPut]
+                [Route("{toDoListId}")]
+                public Task<IActionResult> UpdateToDoListById([FromRoute] int toDoListId, [FromBody] UpdateToDoListByIdRequest request)
+                {
+                        request.Id = toDoListId;
+
+                        return this.HandleRequest<UpdateToDoListByIdRequest, UpdateToDoListByIdResponse>(request);
                 }
 
 

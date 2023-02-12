@@ -23,7 +23,7 @@ namespace ToDoEpam.ApplicationServices.API.Handlers.ToDoListHandlers
                     Name = request.Name,
             };
             var toDoListsFromDb = await queryExecutor.Execute(query);
-            var ToDoListsMappedToModel = toDoListsFromDb.Select(x => new Domain.Models.ToDoListsModel()
+            var ToDoListsMappedToModel = toDoListsFromDb.Select(x => new Domain.Models.ToDoListGeneralModel()
             {
                 Id = x.Id,
                 Name = x.Name,

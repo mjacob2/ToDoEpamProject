@@ -7,9 +7,10 @@ using ToDoEpam.DataAccess.Entities;
 
 namespace ToDoEpam.ApplicationServices.API.Domain.Models
 {
-        public class ToDoListsModel
+        public class ToDoListGeneralModel
         {
                 public int Id { get; set; }
+
                 public string Name { get; set; }
         }
 }

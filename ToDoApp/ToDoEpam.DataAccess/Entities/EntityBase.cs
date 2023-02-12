@@ -8,6 +8,6 @@ namespace ToDoEpam.DataAccess.Entities
                 [Key]
                 public int Id {get; set;}
 
-                public DateTime CreationDate {get; private set;} = DateTime.Now;
+                public DateTime CreationDate {get; set;}
         }
 }
