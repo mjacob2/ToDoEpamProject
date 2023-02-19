@@ -1,8 +1,8 @@
-﻿using MediatR;
-using Microsoft.AspNetCore.Mvc;
-using System.Linq;
+﻿using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
+using MediatR;
+using Microsoft.AspNetCore.Mvc;
 using ToDoEpam.ApplicationServices.API.Domain.Models;
 using ToDoEpam.ApplicationServices.API.Domain.Responses;
 using ToDoEpam.ApplicationServices.API.ErrorHandling;
@@ -11,9 +11,14 @@ namespace ToDoApp.Controllers
 {
         public class ApiControllerBase : ControllerBase
         {
-                protected readonly IMediator mediator;
+                /// <summary>
+                /// bcbcv.
+                /// </summary>
+                private readonly IMediator mediator;
+
                 public ApiControllerBase(IMediator mediator)
                 {
+
                         this.mediator = mediator;
                 }
 
@@ -21,7 +26,6 @@ namespace ToDoApp.Controllers
                         where TRequest : IRequest<TResponse>
                         where TResponse : ErrorResponseBase
                 {
-
                         if (!this.ModelState.IsValid)
                         {
                                 return this.BadRequest(
@@ -36,14 +40,16 @@ namespace ToDoApp.Controllers
                         {
                                 return this.ErrorResponse(response.Error);
                         }
+
                         return this.Ok(response);
                 }
 
                 private IActionResult ErrorResponse(ErrorModel errorModel)
                 {
                         var httpCode = GetHttpStatusCode(errorModel.Error);
-                        return StatusCode((int)httpCode, errorModel);
+                        return this.StatusCode((int)httpCode, errorModel);
                 }
+
                 private static HttpStatusCode GetHttpStatusCode(string errorType)
                 {
                         switch (errorType)
